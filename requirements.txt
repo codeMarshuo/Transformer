@@ -1,0 +1,23 @@
+# --- 代码直接 import 的依赖 (train.py / model.py / dataset.py) ---
+# torch 故意不列在这里：它必须按机器的 CUDA 版本安装（远端现为 2.8.0+cu128），
+# 写一个不带版本的 torch 会让 `pip install -r requirements.txt` 把它覆盖成默认构建，
+# 可能直接丢掉 GPU 支持。需要时按官方命令单独装：
+#   https://pytorch.org/get-started/locally/
+tokenizers
+tensorboard
+tqdm==4.67.1
+
+# --- 数据集 ---
+datasets==5.0.1
+numpy==2.1.3
+
+# --- 评估 (BLEU) ---
+sacrebleu==2.5.1
+
+# --- 画损失曲线 (plot_loss.py) ---
+# plot_loss.py 自己解析 tfevents，不需要 tensorboard，只要 matplotlib
+matplotlib
+
+# sentencepiece: 当前代码并未 import —— 分词走的是 tokenizers 的 WordLevel + Whitespace。
+# 保留以备后续切换到 SentencePiece 分词器，故不锁版本。
+sentencepiece

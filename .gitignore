@@ -1,0 +1,22 @@
+# --- IDE ---
+# 注意：.idea/deployment.xml 里含有远端服务器地址和端口，
+# 本仓库是公开的，千万不要提交
+.idea/
+*.iml
+
+# --- 训练产物 ---
+weights/
+runs/
+*.log
+
+# --- HuggingFace 数据集/模型缓存（很大，不要提交）---
+huggingface_cache/
+
+# --- 测试输出 ---
+test_results.json
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
